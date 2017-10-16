@@ -22,7 +22,6 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class MainActivity extends Activity implements OnItemSelectedListener {
     private Button b1,b2,b3,b4;
     private ImageView iv;
@@ -38,6 +37,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
     private TextView tx1,tx2,tx3;
     private ListView mainList;
     private Spinner spinner;
+    private int gPosition;
 
     private final String[] listContent = {"Charani Tuzhya Thevi","Varnu Kitee Upkaar","Aataa Tari Krupa Kari",
             "Aganita Tav Upkaar","Akshama Deen","Anandee Anand","Arambh Nahi","Bhakt Vatsala Bhakta Deena",
@@ -53,6 +53,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        gPosition = 0;
         b1 = (Button) findViewById(R.id.button);
         b2 = (Button) findViewById(R.id.button2);
         b3 = (Button)findViewById(R.id.button3);
@@ -77,14 +78,15 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
         b4.setEnabled(false);
         mediaPlayer = new MediaPlayer();
         mainList = (ListView) findViewById(R.id.listView1);
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, listContent);
+        final ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, listContent);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         //simple_spinner_dropdown_item
         mainList.setAdapter(dataAdapter);
         mainList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adatperView, View view, int position, long id) {
-                playsong(position);
+            public void onItemClick(AdapterView<?> adatperView, View view,int position, long id) {
+                    gPosition = position;
+                    playsong(position);
             }
         });
 
@@ -171,39 +173,54 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 
     }
 
-    public void playsong(int songindex) {
+    public void playsong(final int songindex) {
         mediaPlayer.reset();
         mediaPlayer = MediaPlayer.create(getApplicationContext(), resId[songindex]);
-        mediaPlayer.start();
-        finalTime = mediaPlayer.getDuration();
-        startTime = mediaPlayer.getCurrentPosition();
+            //mediaPlayer.setLooping(true);
+            mediaPlayer.start();
+            finalTime = mediaPlayer.getDuration();
+            startTime = mediaPlayer.getCurrentPosition();
 
-        if (oneTimeOnly == 0) {
-            seekbar.setMax((int) finalTime);
-            oneTimeOnly = 1;
-        }
+            if (oneTimeOnly == 0) {
+                seekbar.setMax((int) finalTime);
+                oneTimeOnly = 1;
+            }
 
-        tx2.setText(String.format("%d min, %d sec",
-                TimeUnit.MILLISECONDS.toMinutes((long) finalTime),
-                TimeUnit.MILLISECONDS.toSeconds((long) finalTime) -
-                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long)
-                                finalTime)))
-        );
+            tx2.setText(String.format("%d min, %d sec",
+                    TimeUnit.MILLISECONDS.toMinutes((long) finalTime),
+                    TimeUnit.MILLISECONDS.toSeconds((long) finalTime) -
+                            TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long)
+                                    finalTime)))
+            );
 
-        tx1.setText(String.format("%d min, %d sec",
-                TimeUnit.MILLISECONDS.toMinutes((long) startTime),
-                TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
-                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long)
-                                startTime)))
-        );
+            tx1.setText(String.format("%d min, %d sec",
+                    TimeUnit.MILLISECONDS.toMinutes((long) startTime),
+                    TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
+                            TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long)
+                                    startTime)))
+            );
 
-        seekbar.setProgress((int)startTime);
-        myHandler.postDelayed(UpdateSongTime,100);
-        b3.setEnabled(false);
-        b1.setEnabled(true);
-        b2.setEnabled(true);
-        b4.setEnabled(true);
+            seekbar.setProgress((int) startTime);
+            myHandler.postDelayed(UpdateSongTime, 100);
+            b3.setEnabled(false);
+            b1.setEnabled(true);
+            b2.setEnabled(true);
+            b4.setEnabled(true);
+
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                if (gPosition < ( resId.length - 1)) {
+                    playsong(gPosition + 1);
+                    gPosition = gPosition + 1 ;
+                } else {
+                    playsong(0);
+                    gPosition = 0;
+                }
+            }
+        });
     }
+
 
     @Override
     public void onDestroy() {
