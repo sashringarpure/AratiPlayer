@@ -41,10 +41,25 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 
     private final String[] listContent = {"Charani Tuzhya Thevi","Varnu Kitee Upkaar","Aataa Tari Krupa Kari",
             "Aganita Tav Upkaar","Akshama Deen","Anandee Anand","Arambh Nahi","Bhakt Vatsala Bhakta Deena",
-            "Chinta Karu Nako","Darshana Si Kagaa","Daya Kari Sri","Deena Dayaghan"} ;
+            "Chinta Karu Nako","Darshana Si Kagaa","Daya Kari Sri","Deena Dayaghan","Deva Guru Raya","Dhanya Re Sadguru Raya",
+            "Dharita Guru Paule","Digambar Murti","Datta Atma Ram","Datta Bala Ram -I","Datta Bala Ram -II","Dattache_paye_Amhi",
+            "Datta Daya Kari","Datta Guru Mazey Aai","Datta Namacha Gajar -I","Datta Prabhu","Guru Bhajani","Guru Charanacha",
+            "Guru Kathamrut","Guru Krupe Vin","Guru Maharaj","Guru Vine Anya Na","Jaisa Bhaav","Janmo Janmi","Karuna Kar Tu",
+            "Kai Apradh Mazha","Lago Re Tuzhey","Lago Re Tuzhey -I","Manav Dehi","Mai Baap Tumhi","Maya Jaali Mana","Mudha Daas Mi",
+            "Namo Shiv Roopa","Payachiya Seva","Rut Kamal Karnike","Sadguru Charni","Sadguru Jeevan","Saguna Murti","Sai Malang Baba",
+            "Sai Swaroop Datta","Shevata Goad Kari","Sri Guru Datta","Tuchi Mata Pita","Tuzhiya Charani","Tukobachi Kanta",
+            "Zaali Pooja","Monday Ghaad","Tuesday Ghaad","Wednesday Ghaad","Thursday Ghaad","Any Day Ghaad"} ;
     private final int[] resId = { R.raw.charani_tuzhya_thevi, R.raw.varnu_kitee_upkaar, R.raw.aata_tari_krupa_karee,
             R.raw.aganita_tav_upkaar, R.raw.akshama_deen, R.raw.anandee_anand, R.raw.aramba_nahi, R.raw.bhakta_vatsala_bhakta_dheen,
-            R.raw.chinta_karoo_nako, R.raw.darshana_si_kaagaa, R.raw.daya_karee_sri, R.raw.deena_daya} ;
+            R.raw.chinta_karoo_nako, R.raw.darshana_si_kaagaa, R.raw.daya_karee_sri, R.raw.deena_daya, R.raw.deva_guru_raya,R.raw.dhanya_re_sadguru_raya,
+            R.raw.dharita_guru_paule,R.raw.digambar_murti,R.raw.datta_atma_ram,R.raw.datta_bala_ram_01,R.raw.datta_bala_ram_02,
+            R.raw.dattachey_paye_amhi,R.raw.datta_daya_kari,R.raw.datta_guru_mazey_aai,R.raw.datta_namacha_gajar_01,R.raw.datta_prabhu,
+            R.raw.guru_bhajani,R.raw.guru_charanacha,R.raw.guru_kathamrut,R.raw.guru_krupe_vin,R.raw.guru_maharaj,R.raw.guru_vine_anya_na,
+            R.raw.jaisa_bhaav,R.raw.janmo_janmee,R.raw.karuna_kar_tu,R.raw.kai_apradha_maza,R.raw.lago_re_tuzhey,R.raw.lago_re_tuzhey_01,
+            R.raw.manav_dehi,R.raw.mai_baap_tumhi,R.raw.maya_jaali_mana,R.raw.mudha_daas_mi,R.raw.namo_shiv_roopa,R.raw.payachiya_seva,
+            R.raw.rut_kamal_karnike,R.raw.sadguru_charni,R.raw.sadguru_jeevan,R.raw.saguna_murti,R.raw.sai_malang_baba,R.raw.sai_swaroop_datta,
+            R.raw.shevata_goad_kari,R.raw.sri_guru_datta_re,R.raw.tuchi_mata_pita,R.raw.tuzhiya_charani,R.raw.tukobachi_kanta,R.raw.zaali_pooja,
+            R.raw.monday_ghaad,R.raw.tuesday_ghaad,R.raw.wednesday_ghaad,R.raw.thursday_ghaad,R.raw.any_day_ghaad} ;
     public static int oneTimeOnly = 0;
 
 
