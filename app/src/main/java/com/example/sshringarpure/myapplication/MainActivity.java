@@ -30,7 +30,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
     private double startTime = 0;
     private double finalTime = 0;
 
-    private Handler myHandler = new Handler();;
+    private Handler myHandler = new Handler();
     private int forwardTime = 5000;
     private int backwardTime = 5000;
     private SeekBar seekbar;
@@ -48,7 +48,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
             "Kai Apradh Mazha","Lago Re Tuzhey","Lago Re Tuzhey -I","Manav Dehi","Mai Baap Tumhi","Maya Jaali Mana","Mudha Daas Mi",
             "Namo Shiv Roopa","Payachiya Seva","Rut Kamal Karnike","Sadguru Charni","Sadguru Jeevan","Saguna Murti","Sai Malang Baba",
             "Sai Swaroop Datta","Shevata Goad Kari","Sri Guru Datta","Tuchi Mata Pita","Tuzhiya Charani","Tukobachi Kanta",
-            "Zaali Pooja","Monday Ghaad","Tuesday Ghaad","Wednesday Ghaad","Thursday Ghaad","Any Day Ghaad"} ;
+            "Zaali Pooja","Set One","Set Two","Set Three","Set Four","Set Five"} ;
     private final int[] resId = { R.raw.charani_tuzhya_thevi, R.raw.varnu_kitee_upkaar, R.raw.aata_tari_krupa_karee,
             R.raw.aganita_tav_upkaar, R.raw.akshama_deen, R.raw.anandee_anand, R.raw.aramba_nahi, R.raw.bhakta_vatsala_bhakta_dheen,
             R.raw.chinta_karoo_nako, R.raw.darshana_si_kaagaa, R.raw.daya_karee_sri, R.raw.deena_daya, R.raw.deva_guru_raya,R.raw.dhanya_re_sadguru_raya,
@@ -59,7 +59,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
             R.raw.manav_dehi,R.raw.mai_baap_tumhi,R.raw.maya_jaali_mana,R.raw.mudha_daas_mi,R.raw.namo_shiv_roopa,R.raw.payachiya_seva,
             R.raw.rut_kamal_karnike,R.raw.sadguru_charni,R.raw.sadguru_jeevan,R.raw.saguna_murti,R.raw.sai_malang_baba,R.raw.sai_swaroop_datta,
             R.raw.shevata_goad_kari,R.raw.sri_guru_datta_re,R.raw.tuchi_mata_pita,R.raw.tuzhiya_charani,R.raw.tukobachi_kanta,R.raw.zaali_pooja,
-            R.raw.monday_ghaad,R.raw.tuesday_ghaad,R.raw.wednesday_ghaad,R.raw.thursday_ghaad,R.raw.any_day_ghaad} ;
+            R.raw.set_one,R.raw.set_two,R.raw.set_three,R.raw.set_four,R.raw.set_five} ;
     public static int oneTimeOnly = 0;
 
 
